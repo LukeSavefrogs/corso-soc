@@ -1,0 +1,12 @@
+*               text=auto
+*.sh            text eol=lf
+*.bash          text eol=lf
+*.pl            text eol=lf
+*.pm            text eol=lf
+*.esh           text eol=lf
+*.exp           text eol=lf
+Dockerfile      text eol=lf
+Dockerfile.*    text eol=lf
+*.Dockerfile    text eol=lf
+.shellcheckrc   text eol=lf
+.shellspec      text eol=lf

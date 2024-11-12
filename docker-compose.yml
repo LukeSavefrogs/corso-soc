@@ -1,0 +1,45 @@
+name: dummy-servers
+
+services:
+  # Client used for testing
+  client:
+    hostname: devserver
+    build:
+      context: ./docker/
+      dockerfile: Dockerfile.server
+    ports:
+      - "2222:22"
+    networks:
+      - secured
+      - exposed
+    depends_on:
+      - server1
+      - server2
+      - server3
+
+  # Servers used for testing
+  server1:
+    hostname: server1
+    build:
+      context: ./docker/
+      dockerfile: Dockerfile.server
+    networks:
+      - secured
+  server2:
+    hostname: server2
+    build:
+      context: ./docker/
+      dockerfile: Dockerfile.server
+    networks:
+      - secured
+  server3:
+    hostname: server3
+    build:
+      context: ./docker/
+      dockerfile: Dockerfile.server
+    networks:
+      - secured
+
+networks:
+  secured:
+  exposed:
