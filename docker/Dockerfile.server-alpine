@@ -1,0 +1,75 @@
+FROM python:3.12.7-alpine3.20
+LABEL maintainer="Luca Salvarani <lucasalvarani99@gmail.com>"
+
+ARG HOSTNAME=server
+ENV HOSTNAME="${HOSTNAME}"
+ENV PYTHONUNBUFFERED=1
+
+# Install dependencies
+RUN apk update \
+    && apk add --no-cache \
+        bash \
+        curl \
+        jq \
+        man-db \
+        openrc \
+        openssh \
+        openssh-server \
+        rsync \
+        tzdata \
+        vim \
+        wget \
+    && rc-update add sshd \
+    && rm -rf /var/cache/apk/*
+
+RUN <<EOF
+    #!/bin/bash
+    # Disable the default MOTD
+    true > /etc/motd
+
+    # Check and configure rsyncd.conf
+    rsync --version >/dev/null 2>&1 || exit 100
+
+    {
+        echo "lock file = /var/run/rsync.lock";
+        echo "log file = /var/log/rsyncd.log";
+        echo "pid file = /var/run/rsyncd.pid";
+    } > /etc/rsyncd.conf;
+
+    # Start the rsync daemon
+    rsync --daemon;
+
+    # Allow SSH access
+    mkdir /var/run/sshd \
+        && ssh-keygen -A \
+        && echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config \
+   ;
+
+    # Setup the skeleton folder
+    [[ -d /etc/skel ]] || mkdir /etc/skel
+
+    {
+        # echo "export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '";
+        echo "alias ls='ls --color=auto'";
+        echo "alias ll='ls -l'";
+        echo "alias la='ls -la'";
+        echo "alias rm='rm -i'";
+        echo "alias cp='cp -i'";
+        echo "alias mv='mv -i'";
+    } > /etc/skel/.bashrc
+EOF
+
+# Create a new user
+RUN adduser lsalvarani \
+        -g "Luca Salvarani" \
+        -h /home/lsalvarani \
+        -s /bin/bash \
+        -D \
+    && echo -n 'lsalvarani:zaq12wsx' | chpasswd
+
+
+# Expose the SSH port
+EXPOSE 22
+
+# Start SSH server on container startup
+CMD ["/usr/sbin/sshd", "-D", "-o", "LogLevel=DEBUG3"]
