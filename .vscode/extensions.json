@@ -1,5 +1,10 @@
 {
     "recommendations": [
-        "ms-python.python"
+        "ms-vscode-remote.remote-ssh",
+        "ms-python.vscode-pylance",
+        "ms-python.python",
+        "johnnywong.vscode-ts-whitespace-converter",
+        "mechatroner.rainbow-csv",
+        "visualstudioexptteam.vscodeintellicode"
     ]
 }
