@@ -7,7 +7,9 @@ Questo repository contiene il materiale utilizzato per il corso accelerato di Py
 
 ## Obbiettivi
 
-> [!NOTE] Modulo 6 – Automazione con Python (1 giorno)
+> [!NOTE]
+> **Programma Modulo 6 - Automazione con Python**
+>
 > Giorno 23: Automazione di Task Ripetitivi con Python
 > - Mattina:
 >   - Introduzione a Python per l'Automazione:
