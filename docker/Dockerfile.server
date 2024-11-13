@@ -82,6 +82,8 @@ RUN <<EOF
         echo "alias cp='cp -i'";
         echo "alias mv='mv -i'";
     } >> /etc/skel/.bashrc
+
+    echo "au FileType sh setlocal fo-=c fo-=r fo-=o" > /etc/skel/.vimrc
 EOF
 
 FROM base AS customization
