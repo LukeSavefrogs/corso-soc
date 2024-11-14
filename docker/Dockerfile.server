@@ -144,15 +144,6 @@ EOF
 # Create the needed groups
 RUN xargs -n 1 groupadd <<< "teachers students"
 
-# Create the needed users
-RUN useradd lsalvarani \
-        --create-home \
-        --groups teachers,sudo \
-        --comment "Luca Salvarani" \
-        --home-dir /home/lsalvarani \
-        --shell /bin/bash \
-    && echo -n 'lsalvarani:zaq12wsx' | chpasswd
-
 # Expose the SSH port
 EXPOSE 22
 
