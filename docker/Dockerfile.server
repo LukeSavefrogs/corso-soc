@@ -99,7 +99,8 @@ RUN <<EOF
         echo 'echo -e ""';
         echo 'echo -e "RICORDA:"';
         echo 'echo -e "     1. Nessun file salvato in questa macchina è privato, non salvare dati sensibili."';
-        echo 'echo -e "     2. Tutti i file vengono cancellati ad ogni riavvio, assicurati di fare un backup."';
+        echo 'echo -e "     2. Quasi tutti i file vengono cancellati ad ogni riavvio, assicurati di fare un backup."';
+        echo 'echo -e "        Gli unici file che non vengono cancellati sono quelli salvati in /mnt/ o /home/."';
         echo 'echo -e "     3. Questo server è pubblico, non fare nulla di illegale :)"';
         echo 'echo -e ""';
         echo 'for ((i=1; i<=__columns; i++)); do printf "*"; done';
