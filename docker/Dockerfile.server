@@ -50,8 +50,8 @@ RUN apt-get update && \
 RUN <<EOF
     #!/bin/bash
     # Disable the default MOTD
-    # true > /etc/motd
-
+    true > /etc/motd
+    true > /etc/legal
     # Check and configure rsyncd.conf
     rsync --version >/dev/null 2>&1 || exit 100
 
@@ -84,6 +84,26 @@ RUN <<EOF
     } >> /etc/skel/.bashrc
 
     echo "au FileType sh setlocal fo-=c fo-=r fo-=o" > /etc/skel/.vimrc
+    
+    # Change the motd
+    rm -rf /etc/update-motd.d/*;
+    {
+        echo '#!/bin/bash';
+        echo '__columns=80';
+        echo '__username="$(ps -x | grep "$(grep PPid /proc/$(grep PPid /proc/$PPID/status | awk "{ print \$2 }")/status | awk "{ print \$2 }")" | awk "{ print \$6 }" | sed "s/[[:digit:].-]//g" | head -n 1)"';
+        echo '__fullname="$(getent passwd $__username | cut -d: -f5 | cut -d, -f1)"';
+        echo 'for ((i=1; i<=__columns; i++)); do printf "*"; done; echo ""';
+        echo 'echo -e ""';
+        echo 'echo -e "Benvenuto nel server di sviluppo $__fullname ($__username)!"';
+        echo 'echo -e "Sentiti libero di esplorare e sperimentare."';
+        echo 'echo -e ""';
+        echo 'echo -e "RICORDA:"';
+        echo 'echo -e "     1. Nessun file salvato in questa macchina è privato, non salvare dati sensibili."';
+        echo 'echo -e "     2. Tutti i file vengono cancellati ad ogni riavvio, assicurati di fare un backup."';
+        echo 'echo -e "     3. Questo server è pubblico, non fare nulla di illegale :)"';
+        echo 'echo -e ""';
+        echo 'for ((i=1; i<=__columns; i++)); do printf "*"; done';
+    } > /etc/update-motd.d/00-welcome-user && chmod +x /etc/update-motd.d/00-welcome-user
 EOF
 
 FROM base AS customization
