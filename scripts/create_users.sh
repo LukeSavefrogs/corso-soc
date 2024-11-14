@@ -25,10 +25,11 @@ main () {
         IFS=',' read -r username lastname firstname usertype <<< "$line"
 
         if [[ -z "$username" || -z "$lastname" || -z "$firstname" || -z "$usertype" ]]; then
-            echo "Invalid line: $line" >&2
+            echo "ERROR: Invalid line '$line'" >&2
             return 1
         fi
 
+        echo "INFO: Creating user $username with role $usertype (home=/home/${username})..."
         useradd "${username}" \
             --create-home \
             --groups ${usertype:-student}s,sudo \
@@ -37,6 +38,8 @@ main () {
             --shell /bin/bash \
         && echo -n "${username}:${username}" | chpasswd
     done 3< <(tr -d '\r' < "$input_file")
+
+    echo "INFO: All users created successfully!"
 }
 
 
