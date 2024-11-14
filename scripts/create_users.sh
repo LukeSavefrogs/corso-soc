@@ -6,26 +6,37 @@ set -o pipefail
 
 main () {
     # Create the needed users in the following format:
-    # username,lastname,firstname
+    # username,lastname,firstname,students|teachers
 
+    local input_file="${1:-}"
+    if [[ -z "$input_file" ]]; then
+        echo "Usage: $0 <input_file>" >&2
+        return 1
+    fi
+    
     while read -ru3 line; do
-        local student=()
+        local username="" lastname="" firstname="" usertype=""
 
         # Skip header or empty lines
-        if [[ "$line" =~ ^(\ *username,lastname,firstname\ *| *)$ ]]; then
+        if [[ "$line" =~ ^(\ *username,lastname,firstname,role\ *| *)$ ]]; then
             continue
         fi
 
-        IFS=',' read -r -a student <<< "$line"
+        IFS=',' read -r username lastname firstname usertype <<< "$line"
 
-        useradd "${student[0]}" \
+        if [[ -z "$username" || -z "$lastname" || -z "$firstname" || -z "$usertype" ]]; then
+            echo "Invalid line: $line" >&2
+            return 1
+        fi
+
+        useradd "${username}" \
             --create-home \
-            --groups students,sudo \
-            --comment "${student[2]} ${student[1]}" \
-            --home-dir "/home/${student[0]}" \
+            --groups ${usertype:-student}s,sudo \
+            --comment "${firstname} ${lastname}" \
+            --home-dir "/home/${username}" \
             --shell /bin/bash \
-        && echo -n "${student[0]}:${student[0]}" | chpasswd
-    done 3< "$1"
+        && echo -n "${username}:${username}" | chpasswd
+    done 3< <(tr -d '\r' < "$input_file")
 }
 
 
