@@ -9,6 +9,16 @@ services:
       dockerfile: Dockerfile.server
     ports:
       - "2222:22"
+    volumes:
+      - ./docker/persistent/mnt:/mnt/
+      - ./scripts:/root/scripts/
+      - ./docker/persistent/home:/home/
+    command: 
+      - bash
+      - -c
+      - >
+          /root/scripts/create_users.sh /root/scripts/users.csv
+          && /usr/sbin/sshd -D -o LogLevel=DEBUG3
     networks:
       - secured
       - exposed
