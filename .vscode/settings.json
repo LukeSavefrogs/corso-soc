@@ -1,4 +1,4 @@
 {
     "python.analysis.typeCheckingMode": "basic",
-    "mypy.runUsingActiveInterpreter": true
+    "mypy.runUsingActiveInterpreter": false
 }
