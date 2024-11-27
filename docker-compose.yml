@@ -26,6 +26,11 @@ services:
       - server1
       - server2
       - server3
+    # deploy:
+    #   resources:
+    #     limits:
+    #       cpus: "4"
+    #       memory: "4g"
 
   # Servers used for testing
   server1:
