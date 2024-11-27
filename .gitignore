@@ -3,3 +3,4 @@ __pycache__
 *.pyc
 
 docker/persistent/
+scripts/users.csv
