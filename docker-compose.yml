@@ -45,6 +45,38 @@ services:
     networks:
       - secured
 
+  # MySQL and PHPMyAdmin for testing
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: testdb
+    volumes:
+      - mysql:/var/lib/mysql
+    networks:
+      - secured
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      # PMA_USER: root
+      # PMA_PASSWORD: root
+      PMA_SAVEDIR: /mnt/phpmyadmin/
+    attach: false
+    depends_on:
+      - mysql
+    ports:
+      - "8090:80"
+    volumes:
+      - ./docker/persistent/mnt:/mnt/:rw
+    networks:
+      - secured
+      - exposed
+
 networks:
   secured:
   exposed:
+
+volumes:
+  mysql:
+    driver: local
