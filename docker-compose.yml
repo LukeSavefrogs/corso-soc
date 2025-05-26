@@ -5,20 +5,13 @@ services:
   client:
     hostname: devserver
     build:
-      context: ./docker/
-      dockerfile: Dockerfile.server
+      dockerfile: ./docker/Dockerfile.server
     ports:
       - "2222:22"
     volumes:
       - ./docker/persistent/mnt:/mnt/
       - ./scripts:/root/scripts/
       - ./docker/persistent/home:/home/
-    command: 
-      - bash
-      - -c
-      - >
-          /root/scripts/create_users.sh /root/scripts/users.csv
-          && /usr/sbin/sshd -D -o LogLevel=DEBUG3
     networks:
       - secured
       - exposed
@@ -34,24 +27,21 @@ services:
 
   # Servers used for testing
   server1:
-    hostname: server1
+    hostname: server1.internal
     build:
-      context: ./docker/
-      dockerfile: Dockerfile.server
+      dockerfile: ./docker/Dockerfile.server
     networks:
       - secured
   server2:
-    hostname: server2
+    hostname: server2.internal
     build:
-      context: ./docker/
-      dockerfile: Dockerfile.server
+      dockerfile: ./docker/Dockerfile.server
     networks:
       - secured
   server3:
-    hostname: server3
+    hostname: server3.internal
     build:
-      context: ./docker/
-      dockerfile: Dockerfile.server
+      dockerfile: ./docker/Dockerfile.server
     networks:
       - secured
 

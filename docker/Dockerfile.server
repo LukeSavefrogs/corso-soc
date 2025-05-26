@@ -145,6 +145,17 @@ EOF
 # Create the needed groups
 RUN xargs -n 1 groupadd <<< "teachers students"
 
+# Create the needed users
+RUN --mount=type=bind,source=scripts,target=/scripts <<EOF
+    #!/bin/bash
+    # Create the users and add them to the groups
+    /scripts/create_users.sh /scripts/users.csv
+
+    # ************ Comment the following line to disable passwordless sudo ************
+    echo "%teachers ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+    echo "%students ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+EOF
+
 # Expose the SSH port
 EXPOSE 22
 
