@@ -37,7 +37,7 @@ main () {
             --home-dir "/home/${username}" \
             --shell /bin/bash \
         && echo -n "${username}:${username}" | chpasswd
-    done 3< <(tr -d '\r' < "$input_file")
+    done 3< <(tr -d '\r' < "$input_file"; printf '\n')
 
     echo "INFO: All users created successfully!"
 }
