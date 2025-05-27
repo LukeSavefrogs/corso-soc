@@ -54,6 +54,12 @@
 - [Sistema di gestione inventario \[classi + OOP + file JSON | avanzato\]](#sistema-di-gestione-inventario-classi--oop--file-json--avanzato)
   - [Esempio](#esempio-16)
   - [Soluzione](#soluzione-16)
+- [Mini calcolatrice con cronologia \[funzioni + liste + persistenza | avanzato\]](#mini-calcolatrice-con-cronologia-funzioni--liste--persistenza--avanzato)
+  - [Esempio](#esempio-17)
+  - [Soluzione](#soluzione-17)
+- [Cifrario di Cesare con chiave variabile \[stringhe + crittografia + ASCII | avanzato\]](#cifrario-di-cesare-con-chiave-variabile-stringhe--crittografia--ascii--avanzato)
+  - [Esempio](#esempio-18)
+  - [Soluzione](#soluzione-18)
 
 ## Verifica età [condizioni | principiante]
 
@@ -814,6 +820,380 @@ def main():
             inventario.salva_dati()
             print("Dati salvati. Arrivederci!")
             break
+
+if __name__ == "__main__":
+    main()
+```
+
+</details>
+
+## Mini calcolatrice con cronologia [funzioni + liste + persistenza | avanzato]
+
+Crea una calcolatrice che supporti operazioni base, mantenga una cronologia delle operazioni e possa salvare/caricare la cronologia da file.
+
+### Esempio
+
+```text
+=== CALCOLATRICE AVANZATA ===
+1. Addizione
+2. Sottrazione
+3. Moltiplicazione
+4. Divisione
+5. Potenza
+6. Mostra cronologia
+7. Salva cronologia
+8. Carica cronologia
+9. Cancella cronologia
+0. Esci
+Scelta: 1
+
+Primo numero: 15
+Secondo numero: 7
+Risultato: 15 + 7 = 22
+
+Scelta: 6
+=== CRONOLOGIA ===
+1. 15 + 7 = 22
+```
+
+### Soluzione
+
+<details>
+<summary>✅ Mostra soluzione</summary>
+
+```python
+import json
+import os
+from datetime import datetime
+
+class Calcolatrice:
+    def __init__(self):
+        self.cronologia = []
+        self.operazioni = {
+            1: ('+', self.addizione),
+            2: ('-', self.sottrazione),
+            3: ('×', self.moltiplicazione),
+            4: ('÷', self.divisione),
+            5: ('^', self.potenza)
+        }
+    
+    def addizione(self, a, b):
+        return a + b
+    
+    def sottrazione(self, a, b):
+        return a - b
+    
+    def moltiplicazione(self, a, b):
+        return a * b
+    
+    def divisione(self, a, b):
+        if b == 0:
+            raise ValueError("Divisione per zero non permessa")
+        return a / b
+    
+    def potenza(self, a, b):
+        return a ** b
+    
+    def esegui_operazione(self, tipo_op):
+        try:
+            a = float(input("Primo numero: "))
+            b = float(input("Secondo numero: "))
+            
+            simbolo, funzione = self.operazioni[tipo_op]
+            risultato = funzione(a, b)
+            
+            # Formatta i numeri per rimuovere .0 se interi
+            a_str = str(int(a)) if a.is_integer() else str(a)
+            b_str = str(int(b)) if b.is_integer() else str(b)
+            ris_str = str(int(risultato)) if isinstance(risultato, float) and risultato.is_integer() else str(risultato)
+            
+            operazione = f"{a_str} {simbolo} {b_str} = {ris_str}"
+            self.cronologia.append({
+                'operazione': operazione,
+                'timestamp': datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            })
+            
+            print(f"Risultato: {operazione}")
+            
+        except ValueError as e:
+            print(f"Errore: {e}")
+        except Exception as e:
+            print(f"Errore imprevisto: {e}")
+    
+    def mostra_cronologia(self):
+        if not self.cronologia:
+            print("Cronologia vuota.")
+            return
+        
+        print("\n=== CRONOLOGIA ===")
+        for i, entry in enumerate(self.cronologia, 1):
+            print(f"{i}. {entry['operazione']} ({entry['timestamp']})")
+    
+    def salva_cronologia(self):
+        nome_file = input("Nome file (default: cronologia.json): ").strip()
+        if not nome_file:
+            nome_file = "cronologia.json"
+        
+        try:
+            with open(nome_file, 'w', encoding='utf-8') as file:
+                json.dump(self.cronologia, file, indent=2, ensure_ascii=False)
+            print(f"Cronologia salvata in {nome_file}")
+        except Exception as e:
+            print(f"Errore nel salvataggio: {e}")
+    
+    def carica_cronologia(self):
+        nome_file = input("Nome file da caricare: ").strip()
+        
+        try:
+            with open(nome_file, 'r', encoding='utf-8') as file:
+                self.cronologia = json.load(file)
+            print(f"Cronologia caricata da {nome_file}")
+        except FileNotFoundError:
+            print("File non trovato.")
+        except Exception as e:
+            print(f"Errore nel caricamento: {e}")
+    
+    def cancella_cronologia(self):
+        conferma = input("Sei sicuro di voler cancellare la cronologia? (s/n): ")
+        if conferma.lower() == 's':
+            self.cronologia.clear()
+            print("Cronologia cancellata.")
+
+def main():
+    calc = Calcolatrice()
+    
+    while True:
+        print("\n=== CALCOLATRICE AVANZATA ===")
+        print("1. Addizione")
+        print("2. Sottrazione")
+        print("3. Moltiplicazione")
+        print("4. Divisione")
+        print("5. Potenza")
+        print("6. Mostra cronologia")
+        print("7. Salva cronologia")
+        print("8. Carica cronologia")
+        print("9. Cancella cronologia")
+        print("0. Esci")
+        
+        try:
+            scelta = int(input("Scelta: "))
+            
+            if scelta == 0:
+                print("Arrivederci!")
+                break
+            elif 1 <= scelta <= 5:
+                calc.esegui_operazione(scelta)
+            elif scelta == 6:
+                calc.mostra_cronologia()
+            elif scelta == 7:
+                calc.salva_cronologia()
+            elif scelta == 8:
+                calc.carica_cronologia()
+            elif scelta == 9:
+                calc.cancella_cronologia()
+            else:
+                print("Scelta non valida.")
+                
+        except ValueError:
+            print("Inserisci un numero valido.")
+
+if __name__ == "__main__":
+    main()
+```
+
+</details>
+
+## Cifrario di Cesare con chiave variabile [stringhe + crittografia + ASCII | avanzato]
+
+Implementa un cifrario di Cesare che può cifrare/decifrare testo con diversi spostamenti e supporta caratteri speciali.
+
+### Esempio
+
+```text
+=== CIFRARIO DI CESARE ===
+1. Cifra testo
+2. Decifra testo
+3. Forza bruta (prova tutte le chiavi)
+4. Esci
+Scelta: 1
+
+Testo da cifrare: Ciao Mondo!
+Chiave (spostamento): 3
+Includi caratteri speciali? (s/n): s
+
+Testo cifrato: Fldр Prqgr!
+
+Scelta: 3
+Testo da decifrare: Fldр Prqgr!
+
+=== FORZA BRUTA ===
+Chiave  0: Fldр Prqgr!
+Chiave  1: Ekcp Oqpfq!
+Chiave  2: Djbo Npoep!
+Chiave  3: Ciao Mondo!  ← Possibile match!
+```
+
+### Soluzione
+
+<details>
+<summary>✅ Mostra soluzione</summary>
+
+```python
+class CifrarioCesare:
+    def __init__(self):
+        # Alfabeti per diversi set di caratteri
+        self.alfabeto_base = 'abcdefghijklmnopqrstuvwxyz'
+        self.alfabeto_completo = (
+            'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+            '0123456789 .,!?;:-_()[]{}@#$%^&*+=<>/\\|`~"\''
+        )
+    
+    def cifra_carattere(self, char, chiave, alfabeto):
+        if char not in alfabeto:
+            return char
+        
+        indice_originale = alfabeto.index(char)
+        nuovo_indice = (indice_originale + chiave) % len(alfabeto)
+        return alfabeto[nuovo_indice]
+    
+    def decifra_carattere(self, char, chiave, alfabeto):
+        return self.cifra_carattere(char, -chiave, alfabeto)
+    
+    def cifra_testo(self, testo, chiave, includi_speciali=False):
+        alfabeto = self.alfabeto_completo if includi_speciali else self.alfabeto_base
+        
+        risultato = []
+        for char in testo:
+            if not includi_speciali and char.isupper():
+                # Mantieni maiuscole separate
+                char_lower = char.lower()
+                if char_lower in self.alfabeto_base:
+                    cifrato = self.cifra_carattere(char_lower, chiave, self.alfabeto_base)
+                    risultato.append(cifrato.upper())
+                else:
+                    risultato.append(char)
+            else:
+                risultato.append(self.cifra_carattere(char, chiave, alfabeto))
+        
+        return ''.join(risultato)
+    
+    def decifra_testo(self, testo, chiave, includi_speciali=False):
+        return self.cifra_testo(testo, -chiave, includi_speciali)
+    
+    def forza_bruta(self, testo, includi_speciali=False):
+        alfabeto = self.alfabeto_completo if includi_speciali else self.alfabeto_base
+        risultati = []
+        
+        for chiave in range(len(alfabeto)):
+            decifrato = self.decifra_testo(testo, chiave, includi_speciali)
+            
+            # Euristica semplice per identificare testo italiano
+            parole_comuni = ['il', 'di', 'che', 'e', 'la', 'il', 'un', 'a', 'per', 'non', 'una', 'in', 'con', 'è', 'da', 'su', 'del', 'al', 'le']
+            score = sum(1 for parola in parole_comuni if parola in decifrato.lower())
+            
+            risultati.append((chiave, decifrato, score))
+        
+        return risultati
+    
+    def analizza_frequenze(self, testo):
+        """Analizza la frequenza dei caratteri per aiutare nella decrittazione"""
+        from collections import Counter
+        
+        # Frequenze tipiche in italiano (lettere più comuni)
+        # Source: https://it.wikipedia.org/wiki/Analisi_delle_frequenze?oldformat=true
+        freq_italiane = {
+            a: 11.74,
+            b: 0.92,
+            c: 4.50,
+            d: 3.73,
+            e: 11.79,
+            f: 0.95,
+            g: 1.64,
+            h: 1.54,
+            i: 11.28,
+            l: 6.51,
+            m: 2.51,
+            n: 6.88,
+            o: 9.83,
+            p: 3.05,
+            q: 0.51,
+            r: 6.37,
+            s: 4.98,
+            t: 5.62,
+            u: 3.01,
+            v: 2.10,
+            z: 0.49,
+        }
+        
+        conteggio = Counter(char.lower() for char in testo if char.isalpha())
+        lunghezza = sum(conteggio.values())
+        
+        if lunghezza == 0:
+            return {}
+        
+        freq_testo = {char: (count / lunghezza) * 100 for char, count in conteggio.items()}
+        return freq_testo
+
+def main():
+    cifrario = CifrarioCesare()
+    
+    while True:
+        print("\n=== CIFRARIO DI CESARE ===")
+        print("1. Cifra testo")
+        print("2. Decifra testo")
+        print("3. Forza bruta (prova tutte le chiavi)")
+        print("4. Analizza frequenze")
+        print("5. Esci")
+        
+        try:
+            scelta = int(input("Scelta: "))
+            
+            if scelta == 5:
+                print("Arrivederci!")
+                break
+            
+            elif scelta == 1:
+                testo = input("\nTesto da cifrare: ")
+                chiave = int(input("Chiave (spostamento): "))
+                speciali = input("Includi caratteri speciali? (s/n): ").lower() == 's'
+                
+                risultato = cifrario.cifra_testo(testo, chiave, speciali)
+                print(f"\nTesto cifrato: {risultato}")
+            
+            elif scelta == 2:
+                testo = input("\nTesto da decifrare: ")
+                chiave = int(input("Chiave (spostamento): "))
+                speciali = input("Includi caratteri speciali? (s/n): ").lower() == 's'
+                
+                risultato = cifrario.decifra_testo(testo, chiave, speciali)
+                print(f"\nTesto decifrato: {risultato}")
+            
+            elif scelta == 3:
+                testo = input("\nTesto da decifrare: ")
+                speciali = input("Includi caratteri speciali? (s/n): ").lower() == 's'
+                
+                risultati = cifrario.forza_bruta(testo, speciali)
+                
+                print("\n=== FORZA BRUTA ===")
+                for chiave, decifrato, score in risultati[:26]:  # Mostra solo prime 26
+                    marker = "  ← Possibile match!" if score >= 2 else ""
+                    print(f"Chiave {chiave:2d}: {decifrato[:50]}{'...' if len(decifrato) > 50 else ''}{marker}")
+            
+            elif scelta == 4:
+                testo = input("\nTesto da analizzare: ")
+                frequenze = cifrario.analizza_frequenze(testo)
+                
+                print("\n=== ANALISI FREQUENZE ===")
+                for char, freq in sorted(frequenze.items(), key=lambda x: x[1], reverse=True)[:10]:
+                    print(f"'{char}': {freq:.2f}%")
+            
+            else:
+                print("Scelta non valida.")
+                
+        except ValueError:
+            print("Inserisci un numero valido.")
+        except Exception as e:
+            print(f"Errore: {e}")
 
 if __name__ == "__main__":
     main()
