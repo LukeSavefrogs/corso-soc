@@ -7,33 +7,6 @@ Questo repository contiene il materiale utilizzato per il corso accelerato di Py
 
 ## Obbiettivi
 
-> [!NOTE]
-> **Programma Modulo 6 - Automazione con Python**
->
-> Giorno 23: Automazione di Task Ripetitivi con Python
-> - Mattina:
->   - Introduzione a Python per l'Automazione:
->     - Panoramica sulla sintassi di base di Python.
->     - Introduzione ai tipi di dati fondamentali (stringhe, numeri, liste, dizionari).
->     - Configurazione dell'ambiente di sviluppo (IDE) e installazione delle librerie necessarie.
->   - Lettura e Manipolazione di File:
->     - Lettura di file CSV, JSON e log.
->     - Utilizzo delle librerie csv, json e os per estrarre e manipolare dati.
->     - Esercitazioni pratiche sulla lettura e la scrittura di file.
-> - Pomeriggio:
->   - Automazione di Task Ripetitivi:
->     - Utilizzo delle librerie os, sys e subprocess per automatizzare task come l'esecuzione di comandi di sistema e la gestione di file.
->     - Creazione di script per il monitoraggio dei log di sistema.
->     - Automazione di task comuni come il backup di file, l'invio di email con risultati di script e la gestione di processi.
->   - Esempi Pratici di Automazione:
->     - Sviluppo di uno script per automatizzare il controllo e il monitoraggio di cartelle specifiche in un ambiente SOC.
->     - Utilizzo di script per automatizzare operazioni ripetitive come la scansione di file di log e l'invio di alert.
->
-> Obiettivi del Modulo: Il modulo "Automazione con Python" fornisce ai partecipanti le competenze base per
-> automatizzare task ripetitivi utilizzando Python. Verranno trattati i concetti fondamentali di lettura e
-> manipolazione dei file e la gestione dei processi di sistema, permettendo ai partecipanti di sviluppare script
-> utili in un contesto SOC per ottimizzare le operazioni quotidiane.
-
 1. Analizza e genera un report per le seguenti vulnerabilità:
    - porte aperte (`lsof -i`)
    - troppi tentativi di accesso (`lastb --fullnames --time-format iso --dns`)
