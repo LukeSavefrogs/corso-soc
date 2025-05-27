@@ -4,42 +4,42 @@
 - [Verifica età \[condizioni | principiante\]](#verifica-età-condizioni--principiante)
   - [Esempio](#esempio)
   - [Soluzione](#soluzione)
-- [Calcolo del fattoriale \[cicli + matematica | principiante\]](#calcolo-del-fattoriale-cicli--matematica--principiante)
+- [Calcolo dell'area di un triangolo \[matematica + input | principiante\]](#calcolo-dellarea-di-un-triangolo-matematica--input--principiante)
   - [Esempio](#esempio-1)
   - [Soluzione](#soluzione-1)
-  - [Bonus](#bonus)
-  - [Soluzione bonus](#soluzione-bonus)
-- [Palindromo \[stringhe + slicing | principiante\]](#palindromo-stringhe--slicing--principiante)
+- [Convertitore di temperature \[matematica + formule | principiante\]](#convertitore-di-temperature-matematica--formule--principiante)
   - [Esempio](#esempio-2)
   - [Soluzione](#soluzione-2)
-- [Trova il massimo in una lista \[liste | principiante\]](#trova-il-massimo-in-una-lista-liste--principiante)
+- [Inverti una stringa \[stringhe + slicing | principiante\]](#inverti-una-stringa-stringhe--slicing--principiante)
   - [Esempio](#esempio-3)
   - [Soluzione](#soluzione-3)
-- [Conta le vocali in una frase \[stringhe + cicli + condizioni | principiante\]](#conta-le-vocali-in-una-frase-stringhe--cicli--condizioni--principiante)
+- [Palindromo \[stringhe + slicing | principiante\]](#palindromo-stringhe--slicing--principiante)
   - [Esempio](#esempio-4)
   - [Soluzione](#soluzione-4)
-- [Trova tutti i divisori di un numero \[cicli + matematica + condizioni | intermedio\]](#trova-tutti-i-divisori-di-un-numero-cicli--matematica--condizioni--intermedio)
+- [Conteggio caratteri in una stringa \[stringhe | principiante\]](#conteggio-caratteri-in-una-stringa-stringhe--principiante)
   - [Esempio](#esempio-5)
   - [Soluzione](#soluzione-5)
-- [Tabellina di un numero \[cicli + matematica | principiante\]](#tabellina-di-un-numero-cicli--matematica--principiante)
+- [Trova il massimo in una lista \[liste | principiante\]](#trova-il-massimo-in-una-lista-liste--principiante)
   - [Esempio](#esempio-6)
   - [Soluzione](#soluzione-6)
 - [Media di una lista di numeri \[liste + matematica + input parsing | principiante\]](#media-di-una-lista-di-numeri-liste--matematica--input-parsing--principiante)
   - [Esempio](#esempio-7)
   - [Soluzione](#soluzione-7)
-- [Inverti una stringa \[stringhe + slicing | principiante\]](#inverti-una-stringa-stringhe--slicing--principiante)
+- [Calcolo del fattoriale \[cicli + matematica | principiante\]](#calcolo-del-fattoriale-cicli--matematica--principiante)
   - [Esempio](#esempio-8)
   - [Soluzione](#soluzione-8)
-- [Calcolo dell'area di un triangolo \[matematica + input | principiante\]](#calcolo-dellarea-di-un-triangolo-matematica--input--principiante)
+  - [Bonus](#bonus)
+  - [Soluzione bonus](#soluzione-bonus)
+- [Tabellina di un numero \[cicli + matematica | principiante\]](#tabellina-di-un-numero-cicli--matematica--principiante)
   - [Esempio](#esempio-9)
   - [Soluzione](#soluzione-9)
-- [Conteggio caratteri in una stringa \[stringhe | principiante\]](#conteggio-caratteri-in-una-stringa-stringhe--principiante)
+- [Conta le vocali in una frase \[stringhe + cicli + condizioni | principiante\]](#conta-le-vocali-in-una-frase-stringhe--cicli--condizioni--principiante)
   - [Esempio](#esempio-10)
   - [Soluzione](#soluzione-10)
-- [Generatore di password casuale \[random + stringhe + cicli | intermedio\]](#generatore-di-password-casuale-random--stringhe--cicli--intermedio)
+- [Trova tutti i divisori di un numero \[cicli + matematica + condizioni | intermedio\]](#trova-tutti-i-divisori-di-un-numero-cicli--matematica--condizioni--intermedio)
   - [Esempio](#esempio-11)
   - [Soluzione](#soluzione-11)
-- [Convertitore di temperature \[matematica + formule | principiante\]](#convertitore-di-temperature-matematica--formule--principiante)
+- [Generatore di password casuale \[random + stringhe + cicli | intermedio\]](#generatore-di-password-casuale-random--stringhe--cicli--intermedio)
   - [Esempio](#esempio-12)
   - [Soluzione](#soluzione-12)
 - [Gioco "Indovina il numero" \[random + cicli + condizioni | intermedio\]](#gioco-indovina-il-numero-random--cicli--condizioni--intermedio)
@@ -96,6 +96,196 @@ else:
 
 </details>
 
+## Calcolo dell'area di un triangolo [matematica + input | principiante]
+
+Chiedi all'utente di inserire la base e l'altezza di un triangolo e calcola l'area.
+
+### Esempio
+
+```text
+Inserisci la base del triangolo: 10
+Inserisci l'altezza del triangolo: 5
+
+L'area del triangolo è: 25.0
+```
+
+### Soluzione
+
+<details>
+<summary>✅ Mostra soluzione</summary>
+
+```python
+base = float(input("Inserisci la base del triangolo: "))
+altezza = float(input("Inserisci l'altezza del triangolo: "))
+area = (base * altezza) / 2
+print(f"L'area del triangolo è: {area}")
+```
+
+</details>
+
+## Convertitore di temperature [matematica + formule | principiante]
+
+Chiedi all'utente di inserire una temperatura in Celsius e convertila in Fahrenheit e Kelvin.
+
+### Esempio
+
+```text
+Inserisci la temperatura in Celsius: 25
+
+25°C = 77.0°F
+25°C = 298.15K
+```
+
+### Soluzione
+
+<details>
+<summary>✅ Mostra soluzione</summary>
+
+```python
+celsius = float(input("Inserisci la temperatura in Celsius: "))
+fahrenheit = (celsius * 9/5) + 32
+kelvin = celsius + 273.15
+
+print(f"{celsius}°C = {fahrenheit}°F")
+print(f"{celsius}°C = {kelvin}K")
+```
+
+</details>
+
+## Inverti una stringa [stringhe + slicing | principiante]
+
+Chiedi all'utente di inserire una stringa e stampa la stringa invertita.
+
+### Esempio
+
+```text
+Inserisci una stringa: programmazione
+
+Stringa invertita: enoizamargorp
+```
+
+### Soluzione
+
+<details>
+<summary>✅ Mostra soluzione</summary>
+
+```python
+stringa = input("Inserisci una stringa: ")
+print("Stringa invertita:", stringa[::-1])
+```
+
+</details>
+
+## Palindromo [stringhe + slicing | principiante]
+
+Chiedi all’utente di inserire una parola e verifica se è palindroma.
+
+### Esempio
+
+```text
+Inserisci una parola: radar
+
+La parola è palindroma.
+```
+
+### Soluzione
+
+<details>
+<summary>✅ Mostra soluzione</summary>
+
+```python
+parola = input("Inserisci una parola: ")
+if parola == parola[::-1]:
+    print("La parola è palindroma.")
+else:
+    print("La parola NON è palindroma.")
+```
+
+</details>
+
+## Conteggio caratteri in una stringa [stringhe | principiante]
+
+Chiedi all'utente di inserire una stringa e conta quanti caratteri, parole e righe contiene.
+
+### Esempio
+
+```text
+Inserisci una stringa: Ciao mondo! Come va?
+
+Caratteri: 20
+Parole: 4
+Righe: 1
+```
+
+### Soluzione
+
+<details>
+<summary>✅ Mostra soluzione</summary>
+
+```python
+stringa = input("Inserisci una stringa: ")
+caratteri = len(stringa)
+parole = len(stringa.split())
+righe = stringa.count('\n') + 1
+
+print(f"Caratteri: {caratteri}")
+print(f"Parole: {parole}")
+print(f"Righe: {righe}")
+```
+
+</details>
+
+## Trova il massimo in una lista [liste | principiante]
+
+Chiedi all’utente di inserire una lista di numeri separati da spazio e stampa il massimo.
+
+### Esempio
+
+```text
+Inserisci una lista di numeri separati da spazio: 3 7 2 9 5
+
+Il massimo è: 9
+```
+
+### Soluzione
+
+<details>
+<summary>✅ Mostra soluzione</summary>
+
+```python
+numeri = list(map(int, input("Inserisci una lista di numeri separati da spazio: ").split()))
+# Same as the following:
+# numeri = [int(x) for x in input("Inserisci una lista di numeri separati da spazio: ").split()]
+print("Il massimo è:", max(numeri))
+```
+
+</details>
+
+## Media di una lista di numeri [liste + matematica + input parsing | principiante]
+
+Chiedi all'utente di inserire una lista di numeri separati da spazio e calcola la media.
+
+### Esempio
+
+```text
+Inserisci una lista di numeri separati da spazio: 10 20 30 40 50
+
+La media è: 30.0
+```
+
+### Soluzione
+
+<details>
+<summary>✅ Mostra soluzione</summary>
+
+```python
+numeri = list(map(int, input("Inserisci una lista di numeri separati da spazio: ").split()))
+media = sum(numeri) / len(numeri)
+print(f"La media è: {media}")
+```
+
+</details>
+
 ## Calcolo del fattoriale [cicli + matematica | principiante]
 
 Chiedi all’utente di inserire un numero intero positivo e stampa il suo fattoriale.
@@ -148,16 +338,26 @@ print(f"Il fattoriale di {n} è: {fattoriale(n)}")
 
 </details>
 
-## Palindromo [stringhe + slicing | principiante]
+## Tabellina di un numero [cicli + matematica | principiante]
 
-Chiedi all’utente di inserire una parola e verifica se è palindroma.
+Chiedi all'utente di inserire un numero e stampa la sua tabellina (da 1 a 10).
 
 ### Esempio
 
 ```text
-Inserisci una parola: radar
+Inserisci un numero: 7
 
-La parola è palindroma.
+Tabellina del 7:
+7 x 1 = 7
+7 x 2 = 14
+7 x 3 = 21
+7 x 4 = 28
+7 x 5 = 35
+7 x 6 = 42
+7 x 7 = 49
+7 x 8 = 56
+7 x 9 = 63
+7 x 10 = 70
 ```
 
 ### Soluzione
@@ -166,37 +366,10 @@ La parola è palindroma.
 <summary>✅ Mostra soluzione</summary>
 
 ```python
-parola = input("Inserisci una parola: ")
-if parola == parola[::-1]:
-    print("La parola è palindroma.")
-else:
-    print("La parola NON è palindroma.")
-```
-
-</details>
-
-## Trova il massimo in una lista [liste | principiante]
-
-Chiedi all’utente di inserire una lista di numeri separati da spazio e stampa il massimo.
-
-### Esempio
-
-```text
-Inserisci una lista di numeri separati da spazio: 3 7 2 9 5
-
-Il massimo è: 9
-```
-
-### Soluzione
-
-<details>
-<summary>✅ Mostra soluzione</summary>
-
-```python
-numeri = list(map(int, input("Inserisci una lista di numeri separati da spazio: ").split()))
-# Same as the following:
-# numeri = [int(x) for x in input("Inserisci una lista di numeri separati da spazio: ").split()]
-print("Il massimo è:", max(numeri))
+n = int(input("Inserisci un numero: "))
+print(f"Tabellina del {n}:")
+for i in range(1, 11):
+    print(f"{n} x {i} = {n * i}")
 ```
 
 </details>
@@ -252,150 +425,6 @@ print(f"I divisori di {n} sono: " + ' '.join(divisori))
 
 </details>
 
-## Tabellina di un numero [cicli + matematica | principiante]
-
-Chiedi all'utente di inserire un numero e stampa la sua tabellina (da 1 a 10).
-
-### Esempio
-
-```text
-Inserisci un numero: 7
-
-Tabellina del 7:
-7 x 1 = 7
-7 x 2 = 14
-7 x 3 = 21
-7 x 4 = 28
-7 x 5 = 35
-7 x 6 = 42
-7 x 7 = 49
-7 x 8 = 56
-7 x 9 = 63
-7 x 10 = 70
-```
-
-### Soluzione
-
-<details>
-<summary>✅ Mostra soluzione</summary>
-
-```python
-n = int(input("Inserisci un numero: "))
-print(f"Tabellina del {n}:")
-for i in range(1, 11):
-    print(f"{n} x {i} = {n * i}")
-```
-
-</details>
-
-## Media di una lista di numeri [liste + matematica + input parsing | principiante]
-
-Chiedi all'utente di inserire una lista di numeri separati da spazio e calcola la media.
-
-### Esempio
-
-```text
-Inserisci una lista di numeri separati da spazio: 10 20 30 40 50
-
-La media è: 30.0
-```
-
-### Soluzione
-
-<details>
-<summary>✅ Mostra soluzione</summary>
-
-```python
-numeri = list(map(int, input("Inserisci una lista di numeri separati da spazio: ").split()))
-media = sum(numeri) / len(numeri)
-print(f"La media è: {media}")
-```
-
-</details>
-
-## Inverti una stringa [stringhe + slicing | principiante]
-
-Chiedi all'utente di inserire una stringa e stampa la stringa invertita.
-
-### Esempio
-
-```text
-Inserisci una stringa: programmazione
-
-Stringa invertita: enoizamargorp
-```
-
-### Soluzione
-
-<details>
-<summary>✅ Mostra soluzione</summary>
-
-```python
-stringa = input("Inserisci una stringa: ")
-print("Stringa invertita:", stringa[::-1])
-```
-
-</details>
-
-## Calcolo dell'area di un triangolo [matematica + input | principiante]
-
-Chiedi all'utente di inserire la base e l'altezza di un triangolo e calcola l'area.
-
-### Esempio
-
-```text
-Inserisci la base del triangolo: 10
-Inserisci l'altezza del triangolo: 5
-
-L'area del triangolo è: 25.0
-```
-
-### Soluzione
-
-<details>
-<summary>✅ Mostra soluzione</summary>
-
-```python
-base = float(input("Inserisci la base del triangolo: "))
-altezza = float(input("Inserisci l'altezza del triangolo: "))
-area = (base * altezza) / 2
-print(f"L'area del triangolo è: {area}")
-```
-
-</details>
-
-## Conteggio caratteri in una stringa [stringhe | principiante]
-
-Chiedi all'utente di inserire una stringa e conta quanti caratteri, parole e righe contiene.
-
-### Esempio
-
-```text
-Inserisci una stringa: Ciao mondo! Come va?
-
-Caratteri: 20
-Parole: 4
-Righe: 1
-```
-
-### Soluzione
-
-<details>
-<summary>✅ Mostra soluzione</summary>
-
-```python
-stringa = input("Inserisci una stringa: ")
-caratteri = len(stringa)
-parole = len(stringa.split())
-righe = stringa.count('\n') + 1
-
-print(f"Caratteri: {caratteri}")
-print(f"Parole: {parole}")
-print(f"Righe: {righe}")
-```
-
-</details>
-
 ## Generatore di password casuale [random + stringhe + cicli | intermedio]
 
 Chiedi all'utente di inserire la lunghezza desiderata e genera una password casuale con lettere, numeri e simboli.
@@ -421,35 +450,6 @@ lunghezza = int(input("Inserisci la lunghezza della password: "))
 caratteri = string.ascii_letters + string.digits + "!@#$%^&*"
 password = ''.join(random.choice(caratteri) for _ in range(lunghezza))
 print(f"Password generata: {password}")
-```
-
-</details>
-
-## Convertitore di temperature [matematica + formule | principiante]
-
-Chiedi all'utente di inserire una temperatura in Celsius e convertila in Fahrenheit e Kelvin.
-
-### Esempio
-
-```text
-Inserisci la temperatura in Celsius: 25
-
-25°C = 77.0°F
-25°C = 298.15K
-```
-
-### Soluzione
-
-<details>
-<summary>✅ Mostra soluzione</summary>
-
-```python
-celsius = float(input("Inserisci la temperatura in Celsius: "))
-fahrenheit = (celsius * 9/5) + 32
-kelvin = celsius + 273.15
-
-print(f"{celsius}°C = {fahrenheit}°F")
-print(f"{celsius}°C = {kelvin}K")
 ```
 
 </details>
