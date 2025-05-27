@@ -35,7 +35,7 @@ Sei un ragazzo.
 ### Soluzione
 
 <details>
-<summary>Mostra soluzione</summary>
+<summary>✅ Mostra soluzione</summary>
 
 ```python
 age = int(input("Inserisci la tua età: "))
@@ -74,7 +74,7 @@ I primi 5 numeri pari sono:
 ### Soluzione
 
 <details>
-<summary>Mostra soluzione</summary>
+<summary>✅ Mostra soluzione</summary>
 
 ```python
 n = int(input("Inserisci un numero: "))
@@ -112,7 +112,7 @@ I primi 5 numeri pari sono:
 #### Soluzione
 
 <details>
-<summary>Mostra soluzione</summary>
+<summary>✅ Mostra soluzione</summary>
 
 ```python
 import sys
@@ -166,7 +166,7 @@ I primi 5 numeri pari sono:
 #### Soluzione
 
 <details>
-<summary>Mostra soluzione</summary>
+<summary>✅ Mostra soluzione</summary>
 
 ```python
 def is_even(num):
