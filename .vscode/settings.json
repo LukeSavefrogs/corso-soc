@@ -1,4 +1,9 @@
 {
     "python.analysis.typeCheckingMode": "basic",
-    "mypy.runUsingActiveInterpreter": false
+    "mypy.runUsingActiveInterpreter": false,
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": true
+    }
 }
