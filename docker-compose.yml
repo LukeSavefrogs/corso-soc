@@ -10,7 +10,7 @@ services:
       - "2222:22"
     volumes:
       - ./docker/persistent/mnt:/mnt/:rw
-      - ./scripts:/root/scripts/
+      - ./scripts:/root/scripts/:ro
       # - ./docker/persistent/home:/home/
     networks:
       - secured
