@@ -203,3 +203,5 @@ print(f"I primi {n} numeri {choice} sono:")
 for number in numbers[:n]:
     print(number)
 ```
+
+</details>
