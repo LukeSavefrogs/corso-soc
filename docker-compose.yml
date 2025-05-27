@@ -9,9 +9,9 @@ services:
     ports:
       - "2222:22"
     volumes:
-      - ./docker/persistent/mnt:/mnt/
+      - ./docker/persistent/mnt:/mnt/:rw
       - ./scripts:/root/scripts/
-      - ./docker/persistent/home:/home/
+      # - ./docker/persistent/home:/home/
     networks:
       - secured
       - exposed
@@ -30,18 +30,24 @@ services:
     hostname: server1.internal
     build:
       dockerfile: ./docker/Dockerfile.server
+    volumes:
+      - ./docker/persistent/mnt:/mnt/:rw
     networks:
       - secured
   server2:
     hostname: server2.internal
     build:
       dockerfile: ./docker/Dockerfile.server
+    volumes:
+      - ./docker/persistent/mnt:/mnt/:rw
     networks:
       - secured
   server3:
     hostname: server3.internal
     build:
       dockerfile: ./docker/Dockerfile.server
+    volumes:
+      - ./docker/persistent/mnt:/mnt/:rw
     networks:
       - secured
 
