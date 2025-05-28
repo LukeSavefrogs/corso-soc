@@ -90,6 +90,23 @@ services:
       - secured
       - exposed
 
+  # ===================> CISCO IOS Switches <===================
+  # These are fake switches, not real Cisco IOS images :D
+  switch1:
+    image: internap/fake-switches
+    hostname: switch1.internal
+    ports:
+      - "2201:22"
+    networks:
+      - secured
+  switch2:
+    image: internap/fake-switches
+    hostname: switch2.internal
+    ports:
+      - "2202:22"
+    networks:
+      - secured
+
 networks:
   secured:
   exposed:
