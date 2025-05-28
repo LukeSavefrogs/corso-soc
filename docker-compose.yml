@@ -50,6 +50,17 @@ services:
       - ./docker/persistent/mnt:/mnt/:rw
     networks:
       - secured
+  # php-apache:
+  #   build:
+  #     context: ./src/example-app/
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     # - 8080:80
+  #     - 8080:6543
+  #   networks:
+  #     - secured
+  #     - exposed
+
 
   # MySQL and PHPMyAdmin for testing
   mysql:
