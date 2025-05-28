@@ -1,70 +1,75 @@
 <!-- omit from toc -->
 # Esercitazioni generali
 
-- [Verifica età \[condizioni | 🟢 principiante\]](#verifica-età-condizioni---principiante)
-  - [Esempio](#esempio)
-  - [Soluzione](#soluzione)
-- [Calcolo dell'area di un triangolo \[matematica + input | 🟢 principiante\]](#calcolo-dellarea-di-un-triangolo-matematica--input---principiante)
-  - [Esempio](#esempio-1)
-  - [Soluzione](#soluzione-1)
-- [Convertitore di temperature \[matematica + formule | 🟢 principiante\]](#convertitore-di-temperature-matematica--formule---principiante)
-  - [Esempio](#esempio-2)
-  - [Soluzione](#soluzione-2)
-- [Inverti una stringa \[stringhe + slicing | 🟢 principiante\]](#inverti-una-stringa-stringhe--slicing---principiante)
-  - [Esempio](#esempio-3)
-  - [Soluzione](#soluzione-3)
-- [Palindromo \[stringhe + slicing | 🟢 principiante\]](#palindromo-stringhe--slicing---principiante)
-  - [Esempio](#esempio-4)
-  - [Soluzione](#soluzione-4)
-- [Conteggio caratteri in una stringa \[stringhe | 🟢 principiante\]](#conteggio-caratteri-in-una-stringa-stringhe---principiante)
-  - [Esempio](#esempio-5)
-  - [Soluzione](#soluzione-5)
-- [Trova il massimo in una lista \[liste | 🟢 principiante\]](#trova-il-massimo-in-una-lista-liste---principiante)
-  - [Esempio](#esempio-6)
-  - [Soluzione](#soluzione-6)
-- [Media di una lista di numeri \[liste + matematica + input parsing | 🟢 principiante\]](#media-di-una-lista-di-numeri-liste--matematica--input-parsing---principiante)
-  - [Esempio](#esempio-7)
-  - [Soluzione](#soluzione-7)
-- [Calcolo del fattoriale \[cicli + matematica | 🟢 principiante\]](#calcolo-del-fattoriale-cicli--matematica---principiante)
-  - [Esempio](#esempio-8)
-  - [Soluzione](#soluzione-8)
-  - [Bonus](#bonus)
-  - [Soluzione bonus](#soluzione-bonus)
-- [Tabellina di un numero \[cicli + matematica | 🟢 principiante\]](#tabellina-di-un-numero-cicli--matematica---principiante)
-  - [Esempio](#esempio-9)
-  - [Soluzione](#soluzione-9)
-- [Conta le vocali in una frase \[stringhe + cicli + condizioni | 🟢 principiante\]](#conta-le-vocali-in-una-frase-stringhe--cicli--condizioni---principiante)
-  - [Esempio](#esempio-10)
-  - [Soluzione](#soluzione-10)
-- [Generatore di email casuale \[stringhe + random + cicli | 🟡 intermedio\]](#generatore-di-email-casuale-stringhe--random--cicli---intermedio)
-  - [Esempio](#esempio-11)
-  - [Soluzione](#soluzione-11)
-- [Trova tutti i divisori di un numero \[cicli + matematica + condizioni | 🟡 intermedio\]](#trova-tutti-i-divisori-di-un-numero-cicli--matematica--condizioni---intermedio)
-  - [Esempio](#esempio-12)
-  - [Soluzione](#soluzione-12)
-- [Generatore di password casuale \[random + stringhe + cicli | 🟡 intermedio\]](#generatore-di-password-casuale-random--stringhe--cicli---intermedio)
-  - [Esempio](#esempio-13)
-  - [Soluzione](#soluzione-13)
-- [Gioco "Indovina il numero" \[random + cicli + condizioni | 🟡 intermedio\]](#gioco-indovina-il-numero-random--cicli--condizioni---intermedio)
-  - [Esempio](#esempio-14)
-  - [Soluzione](#soluzione-14)
-- [Validatore di password \[stringhe + regex + condizioni | 🔴 avanzato\]](#validatore-di-password-stringhe--regex--condizioni---avanzato)
-  - [Esempio](#esempio-15)
-  - [Soluzione](#soluzione-15)
-- [Analizzatore di testo \[dizionari + stringhe + file I/O | 🔴 avanzato\]](#analizzatore-di-testo-dizionari--stringhe--file-io---avanzato)
-  - [Esempio](#esempio-16)
-  - [Soluzione](#soluzione-16)
-- [Sistema di gestione inventario \[classi + OOP + file JSON | 🔴 avanzato\]](#sistema-di-gestione-inventario-classi--oop--file-json---avanzato)
-  - [Esempio](#esempio-17)
-  - [Soluzione](#soluzione-17)
-- [Mini calcolatrice con cronologia \[funzioni + liste + persistenza | 🔴 avanzato\]](#mini-calcolatrice-con-cronologia-funzioni--liste--persistenza---avanzato)
-  - [Esempio](#esempio-18)
-  - [Soluzione](#soluzione-18)
-- [Cifrario di Cesare con chiave variabile \[stringhe + crittografia + ASCII | 🔴 avanzato\]](#cifrario-di-cesare-con-chiave-variabile-stringhe--crittografia--ascii---avanzato)
-  - [Esempio](#esempio-19)
-  - [Soluzione](#soluzione-19)
+- [🟢 Difficoltà: facile](#-difficoltà-facile)
+  - [Verifica età \[condizioni\]](#verifica-età-condizioni)
+    - [Esempio](#esempio)
+    - [Soluzione](#soluzione)
+  - [Calcolo dell'area di un triangolo \[matematica + input\]](#calcolo-dellarea-di-un-triangolo-matematica--input)
+    - [Esempio](#esempio-1)
+    - [Soluzione](#soluzione-1)
+  - [Convertitore di temperature \[matematica + formule\]](#convertitore-di-temperature-matematica--formule)
+    - [Esempio](#esempio-2)
+    - [Soluzione](#soluzione-2)
+  - [Inverti una stringa \[stringhe + slicing\]](#inverti-una-stringa-stringhe--slicing)
+    - [Esempio](#esempio-3)
+    - [Soluzione](#soluzione-3)
+  - [Palindromo \[stringhe + slicing\]](#palindromo-stringhe--slicing)
+    - [Esempio](#esempio-4)
+    - [Soluzione](#soluzione-4)
+  - [Conteggio caratteri in una stringa \[stringhe\]](#conteggio-caratteri-in-una-stringa-stringhe)
+    - [Esempio](#esempio-5)
+    - [Soluzione](#soluzione-5)
+  - [Trova il massimo in una lista \[liste\]](#trova-il-massimo-in-una-lista-liste)
+    - [Esempio](#esempio-6)
+    - [Soluzione](#soluzione-6)
+  - [Media di una lista di numeri \[liste + matematica + input parsing\]](#media-di-una-lista-di-numeri-liste--matematica--input-parsing)
+    - [Esempio](#esempio-7)
+    - [Soluzione](#soluzione-7)
+  - [Calcolo del fattoriale \[cicli + matematica\]](#calcolo-del-fattoriale-cicli--matematica)
+    - [Esempio](#esempio-8)
+    - [Soluzione](#soluzione-8)
+    - [Bonus](#bonus)
+    - [Soluzione bonus](#soluzione-bonus)
+  - [Tabellina di un numero \[cicli + matematica\]](#tabellina-di-un-numero-cicli--matematica)
+    - [Esempio](#esempio-9)
+    - [Soluzione](#soluzione-9)
+  - [Conta le vocali in una frase \[stringhe + cicli + condizioni\]](#conta-le-vocali-in-una-frase-stringhe--cicli--condizioni)
+    - [Esempio](#esempio-10)
+    - [Soluzione](#soluzione-10)
+- [🟡 Difficoltà: medio](#-difficoltà-medio)
+  - [Generatore di email casuale \[stringhe + random + cicli\]](#generatore-di-email-casuale-stringhe--random--cicli)
+    - [Esempio](#esempio-11)
+    - [Soluzione](#soluzione-11)
+  - [Trova tutti i divisori di un numero \[cicli + matematica + condizioni\]](#trova-tutti-i-divisori-di-un-numero-cicli--matematica--condizioni)
+    - [Esempio](#esempio-12)
+    - [Soluzione](#soluzione-12)
+  - [Generatore di password casuale \[random + stringhe + cicli\]](#generatore-di-password-casuale-random--stringhe--cicli)
+    - [Esempio](#esempio-13)
+    - [Soluzione](#soluzione-13)
+  - [Gioco "Indovina il numero" \[random + cicli + condizioni\]](#gioco-indovina-il-numero-random--cicli--condizioni)
+    - [Esempio](#esempio-14)
+    - [Soluzione](#soluzione-14)
+  - [Validatore di password \[stringhe + regex + condizioni\]](#validatore-di-password-stringhe--regex--condizioni)
+    - [Esempio](#esempio-15)
+    - [Soluzione](#soluzione-15)
+- [🔴 Difficoltà: difficile](#-difficoltà-difficile)
+  - [Analizzatore di testo \[dizionari + stringhe + file I/O\]](#analizzatore-di-testo-dizionari--stringhe--file-io)
+    - [Esempio](#esempio-16)
+    - [Soluzione](#soluzione-16)
+  - [Sistema di gestione inventario \[classi + OOP + file JSON\]](#sistema-di-gestione-inventario-classi--oop--file-json)
+    - [Esempio](#esempio-17)
+    - [Soluzione](#soluzione-17)
+  - [Mini calcolatrice con cronologia \[funzioni + liste + persistenza\]](#mini-calcolatrice-con-cronologia-funzioni--liste--persistenza)
+    - [Esempio](#esempio-18)
+    - [Soluzione](#soluzione-18)
+  - [Cifrario di Cesare con chiave variabile \[stringhe + crittografia + ASCII\]](#cifrario-di-cesare-con-chiave-variabile-stringhe--crittografia--ascii)
+    - [Esempio](#esempio-19)
+    - [Soluzione](#soluzione-19)
 
-## Verifica età [condizioni | 🟢 principiante]
+# 🟢 Difficoltà: facile
+
+## Verifica età [condizioni]
 
 Data in ingresso l'età di un utente, stampare i seguenti valori:
 - `Anziano` (età >= 70)
@@ -105,7 +110,7 @@ else:
 
 </details>
 
-## Calcolo dell'area di un triangolo [matematica + input | 🟢 principiante]
+## Calcolo dell'area di un triangolo [matematica + input]
 
 Chiedi all'utente di inserire la base e l'altezza di un triangolo e calcola l'area.
 
@@ -132,7 +137,7 @@ print(f"L'area del triangolo è: {area}")
 
 </details>
 
-## Convertitore di temperature [matematica + formule | 🟢 principiante]
+## Convertitore di temperature [matematica + formule]
 
 Chiedi all'utente di inserire una temperatura in Celsius e convertila in Fahrenheit e Kelvin.
 
@@ -161,7 +166,7 @@ print(f"{celsius}°C = {kelvin}K")
 
 </details>
 
-## Inverti una stringa [stringhe + slicing | 🟢 principiante]
+## Inverti una stringa [stringhe + slicing]
 
 Chiedi all'utente di inserire una stringa e stampa la stringa invertita.
 
@@ -185,7 +190,7 @@ print("Stringa invertita:", stringa[::-1])
 
 </details>
 
-## Palindromo [stringhe + slicing | 🟢 principiante]
+## Palindromo [stringhe + slicing]
 
 Chiedi all’utente di inserire una parola e verifica se è palindroma.
 
@@ -212,7 +217,7 @@ else:
 
 </details>
 
-## Conteggio caratteri in una stringa [stringhe | 🟢 principiante]
+## Conteggio caratteri in una stringa [stringhe]
 
 Chiedi all'utente di inserire una stringa e conta quanti caratteri, parole e righe contiene.
 
@@ -244,7 +249,7 @@ print(f"Righe: {righe}")
 
 </details>
 
-## Trova il massimo in una lista [liste | 🟢 principiante]
+## Trova il massimo in una lista [liste]
 
 Chiedi all’utente di inserire una lista di numeri separati da spazio e stampa il massimo.
 
@@ -270,7 +275,7 @@ print("Il massimo è:", max(numeri))
 
 </details>
 
-## Media di una lista di numeri [liste + matematica + input parsing | 🟢 principiante]
+## Media di una lista di numeri [liste + matematica + input parsing]
 
 Chiedi all'utente di inserire una lista di numeri separati da spazio e calcola la media.
 
@@ -295,7 +300,7 @@ print(f"La media è: {media}")
 
 </details>
 
-## Calcolo del fattoriale [cicli + matematica | 🟢 principiante]
+## Calcolo del fattoriale [cicli + matematica]
 
 Chiedi all’utente di inserire un numero intero positivo e stampa il suo fattoriale.
 
@@ -347,7 +352,7 @@ print(f"Il fattoriale di {n} è: {fattoriale(n)}")
 
 </details>
 
-## Tabellina di un numero [cicli + matematica | 🟢 principiante]
+## Tabellina di un numero [cicli + matematica]
 
 Chiedi all'utente di inserire un numero e stampa la sua tabellina (da 1 a 10).
 
@@ -383,7 +388,7 @@ for i in range(1, 11):
 
 </details>
 
-## Conta le vocali in una frase [stringhe + cicli + condizioni | 🟢 principiante]
+## Conta le vocali in una frase [stringhe + cicli + condizioni]
 
 Chiedi all’utente di inserire una frase e conta quante vocali contiene.
 
@@ -409,7 +414,9 @@ print(f"La frase contiene {conteggio} vocali.")
 
 </details>
 
-## Generatore di email casuale [stringhe + random + cicli | 🟡 intermedio]
+# 🟡 Difficoltà: medio
+
+## Generatore di email casuale [stringhe + random + cicli]
 
 Genera un'indirizzo email casuale.
 
@@ -440,7 +447,7 @@ print(f"Email generata: {email}")
 
 </details>
 
-## Trova tutti i divisori di un numero [cicli + matematica + condizioni | 🟡 intermedio]
+## Trova tutti i divisori di un numero [cicli + matematica + condizioni]
 
 Chiedi all’utente di inserire un numero e stampa tutti i suoi divisori.
 
@@ -465,7 +472,7 @@ print(f"I divisori di {n} sono: " + ' '.join(divisori))
 
 </details>
 
-## Generatore di password casuale [random + stringhe + cicli | 🟡 intermedio]
+## Generatore di password casuale [random + stringhe + cicli]
 
 Chiedi all'utente di inserire la lunghezza desiderata e genera una password casuale con lettere, numeri e simboli.
 
@@ -494,7 +501,7 @@ print(f"Password generata: {password}")
 
 </details>
 
-## Gioco "Indovina il numero" [random + cicli + condizioni | 🟡 intermedio]
+## Gioco "Indovina il numero" [random + cicli + condizioni]
 
 Il computer sceglie un numero casuale tra 1 e 100. L'utente deve indovinarlo, ricevendo suggerimenti "troppo alto" o "troppo basso".
 
@@ -541,7 +548,7 @@ while True:
 
 </details>
 
-## Validatore di password [stringhe + regex + condizioni | 🔴 avanzato]
+## Validatore di password [stringhe + regex + condizioni]
 
 Crea un validatore di password che verifichi se una password rispetta i seguenti criteri:
 - Almeno 8 caratteri
@@ -609,7 +616,9 @@ else:
 
 </details>
 
-## Analizzatore di testo [dizionari + stringhe + file I/O | 🔴 avanzato]
+# 🔴 Difficoltà: difficile
+
+## Analizzatore di testo [dizionari + stringhe + file I/O]
 
 Crea un programma che analizzi un file di testo e fornisca statistiche dettagliate: parole più frequenti, lunghezza media delle parole, distribuzione delle lunghezze, ecc.
 
@@ -700,7 +709,7 @@ analizza_testo(nome_file)
 
 </details>
 
-## Sistema di gestione inventario [classi + OOP + file JSON | 🔴 avanzato]
+## Sistema di gestione inventario [classi + OOP + file JSON]
 
 Crea un sistema per gestire l'inventario di un negozio con persistenza dei dati in formato JSON.
 
@@ -861,7 +870,7 @@ if __name__ == "__main__":
 
 </details>
 
-## Mini calcolatrice con cronologia [funzioni + liste + persistenza | 🔴 avanzato]
+## Mini calcolatrice con cronologia [funzioni + liste + persistenza]
 
 Crea una calcolatrice che supporti operazioni base, mantenga una cronologia delle operazioni e possa salvare/caricare la cronologia da file.
 
@@ -1037,7 +1046,7 @@ if __name__ == "__main__":
 
 </details>
 
-## Cifrario di Cesare con chiave variabile [stringhe + crittografia + ASCII | 🔴 avanzato]
+## Cifrario di Cesare con chiave variabile [stringhe + crittografia + ASCII]
 
 Implementa un cifrario di Cesare che può cifrare/decifrare testo con diversi spostamenti e supporta caratteri speciali.
 
