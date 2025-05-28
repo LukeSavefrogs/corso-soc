@@ -1,6 +1,10 @@
 <!-- omit from toc -->
 # Esercitazioni generali
 
+Programmi di esercitazione per principianti in Python, suddivisi per difficoltà.
+
+Procedi con calma e cerca di risolvere gli esercizi senza guardare le soluzioni. Se hai bisogno di aiuto, puoi consultare le soluzioni fornite.
+
 - [🟢 Difficoltà: facile](#-difficoltà-facile)
   - [Verifica età \[condizioni\]](#verifica-età-condizioni)
     - [Esempio](#esempio)
