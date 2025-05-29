@@ -97,7 +97,7 @@ if __name__ == "__main__":
         'secret': 'root',
     }
 
-    with netmiko.ConnectHandler(**cisco_881) as net_connect:
+    with netmiko.ConnectHandler(**device) as net_connect:
         print(f'Sei connesso allo switch ({device["host"]}:{device["port"]})')
 
         # Entra in modalità privilegiata (se necessario)
