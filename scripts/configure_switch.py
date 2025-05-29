@@ -157,40 +157,25 @@ if __name__ == "__main__":
         # print(net_connect.send_command('show version'))
         logger.info("Using TTP template '%s'", ttp_template.resolve())
           
-        print(net_connect.send_command_timing('show running-config\n\n', 
-            strip_prompt=False,
-            strip_command=False,
+        config = net_connect.send_command_timing('show running-config\n\n', 
             normalize=False,
             # use_ttp=True,
             # ttp_template=str(ttp_template.resolve()),
-        ))
+        )
 
         # Send new configuration commands
-        print(net_connect.send_config_set(CONFIGURATION, strip_prompt=False, strip_command=False, cmd_verify=False, exit_config_mode=False))
+        net_connect.send_config_set(CONFIGURATION, strip_prompt=False, strip_command=False, cmd_verify=False, exit_config_mode=False)
         logger.info("Configuration commands sent successfully.")
 
-        logger.debug("Prompt after configuration is '%s'", net_connect.find_prompt())
-
-        print(net_connect.send_command_timing('exit\nexit\n\n', normalize=False))
-        
+        # Exit from configuration mode
+        logger.info("Exiting configuration mode...")
+        net_connect.send_command_timing('exit\nexit\n\n', normalize=False)
 
         if net_connect.check_config_mode():
             raise Exception("Failed to exit configuration mode.")
 
         logger.info("Exited configuration mode successfully.")
 
-        logger.debug("Prompt after exiting configuration is '%s'", net_connect.find_prompt())
-
         # Save the configuration
         net_connect.save_config()
         logger.info("Configuration saved successfully.")
-
-
-        print(net_connect.send_command_timing('show running-config\n\n', 
-            strip_prompt=False,
-            strip_command=False,
-            normalize=False,
-            # use_ttp=True,
-            # ttp_template=str(ttp_template.resolve()),
-        ))
-
