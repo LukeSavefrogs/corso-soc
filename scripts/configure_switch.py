@@ -17,10 +17,17 @@ logger.addHandler(handler)
 CONFIGURATION = r"""
 !
 vlan 10
-name Users
+ name Users
 !
 vlan 20
-name Servers
+ name Voice
+!
+vlan 30
+ name Guest
+!
+interface Vlan1
+ ip address 192.168.1.1 255.255.255.0
+ no shutdown
 !
 interface vlan 10
 ip address 192.168.10.1 255.255.255.0
@@ -31,61 +38,92 @@ ip address 192.168.20.1 255.255.255.0
 no shutdown
 !
 interface FastEthernet0/1
-switchport mode access
-switchport access vlan 10
+ description Uplink-to-Core
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20,30
 !
 interface FastEthernet0/2
-switchport mode access
-switchport access vlan 10
+ description Access-Users
+ switchport mode access
+ switchport access vlan 10
 !
 interface FastEthernet0/3
-switchport mode access
-switchport access vlan 20
+ description Access-Voice
+ switchport mode access
+ switchport access vlan 20
 !
 interface FastEthernet0/4
-switchport mode trunk
+ description Access-Guest
+ switchport mode access
+ switchport access vlan 30
 !
-interface FastEthernet1/1
-switchport mode trunk
+interface FastEthernet0/5
+ description Trunk-to-AP
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport trunk allowed vlan all
 !
-interface FastEthernet1/2
-switchport mode trunk
+interface FastEthernet0/6
+ description QoS-Test
+ switchport mode access
+ switchport access vlan 10
+ shutdown
 !
-interface FastEthernet1/3
-switchport mode trunk
+interface FastEthernet0/7
+ description Security-Port
+ switchport mode access
+ switchport access vlan 10
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security violation restrict
 !
-interface FastEthernet1/4
-switchport mode trunk
+interface FastEthernet0/8
+ description Security-Port-Strict
+ switchport mode access
+ switchport access vlan 10
+ switchport port-security
+ switchport port-security maximum 1
+ switchport port-security violation shutdown
 !
-interface FastEthernet1/5
-switchport mode trunk
+interface FastEthernet0/9
+ description Monitoring-Port
+ switchport mode access
+ switchport access vlan 30
 !
-interface FastEthernet1/6
-switchport mode trunk
+interface FastEthernet0/10
+ description Guest-LAN
+ switchport mode access
+ switchport access vlan 30
+ shutdown
 !
-interface FastEthernet1/7
-switchport mode trunk
+interface FastEthernet0/11
+ description VoIP-Phone
+ switchport mode access
+ switchport voice vlan 20
+ switchport access vlan 10
 !
-interface FastEthernet1/8
-switchport mode trunk
+interface FastEthernet0/12
+ description Backup-Link
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
 !
-interface FastEthernet1/9
-switchport mode trunk
+interface FastEthernet0/13
+ description Unused-Port
+ shutdown
 !
-interface FastEthernet1/10
-switchport mode trunk
+interface FastEthernet0/14
+ description Unused-Port
+ shutdown
 !
-interface FastEthernet1/11
-switchport mode trunk
+interface FastEthernet0/15
+ description Unused-Port
+ shutdown
 !
-interface FastEthernet1/12
-switchport mode trunk
-!
-interface FastEthernet1/13
-switchport mode trunk
-!
-interface FastEthernet1/14
-switchport mode trunk
+interface FastEthernet0/16
+ description Test-Port
+ switchport mode access
+ switchport access vlan 10
 !
 \n\n
 """
