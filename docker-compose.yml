@@ -94,6 +94,8 @@ services:
   # These are fake switches, not real Cisco IOS images :D
   switch1:
     image: internap/fake-switches
+    environment:
+      - SWITCH_MODEL=cisco_2960_48TT_L
     hostname: switch1.internal
     ports:
       - "2201:22"
@@ -101,6 +103,8 @@ services:
       - secured
   switch2:
     image: internap/fake-switches
+    environment:
+      - SWITCH_MODEL=cisco_2960_24TT_L
     hostname: switch2.internal
     ports:
       - "2202:22"
